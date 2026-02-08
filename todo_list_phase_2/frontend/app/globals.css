@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom styles for the todo app */
+.task-item {
+  @apply border rounded-lg p-4 mb-3 transition-all duration-200 ease-in-out hover:shadow-md;
+}
+
+.task-completed {
+  @apply bg-gradient-to-r from-green-50 to-emerald-50 border-green-200;
+}
+
+.task-active {
+  @apply bg-white;
+}
+
+.task-title {
+  @apply font-medium text-lg mb-1;
+}
+
+.task-description {
+  @apply text-gray-600 text-sm mb-2;
+}
+
+.task-meta {
+  @apply text-xs text-gray-500 italic;
+}
+
+.btn {
+  @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200;
+}
+
+.btn-primary {
+  @apply text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 focus:ring-indigo-500;
+}
+
+.btn-danger {
+  @apply text-white bg-red-600 hover:bg-red-700 focus:ring-red-500;
+}
+
+.btn-outline {
+  @apply text-gray-700 bg-white hover:bg-gray-50 border-gray-300 focus:ring-indigo-500;
+}
+
+.form-control {
+  @apply block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition-colors duration-200;
+}
+
+.card {
+  @apply bg-white overflow-hidden shadow rounded-lg border border-gray-200/50;
+}
+
+.card-header {
+  @apply px-4 py-5 border-b border-gray-200 sm:px-6;
+}
+
+.card-body {
+  @apply px-4 py-5 sm:p-6;
+}
+
+.loading-spinner {
+  @apply animate-spin rounded-full h-5 w-5 border-b-2 border-white;
+}
+
+/* Responsive adjustments */
+.container {
+  @apply mx-auto px-4;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Custom animations */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
